@@ -61,7 +61,7 @@ public class LoginFragment extends Fragment {
         binding.setLifecycleOwner(this);
         sessionManager = new SessionManager(getContext());
 
-        getUnitList();
+//        getUnitList();
 
         binding.edtunitname.setOnClickListener(new View.OnClickListener() {
             @Override
