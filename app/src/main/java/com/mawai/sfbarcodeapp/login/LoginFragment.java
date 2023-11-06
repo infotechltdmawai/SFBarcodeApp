@@ -63,12 +63,12 @@ public class LoginFragment extends Fragment {
 
         getUnitList();
 
-//        binding.edtunitname.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                spinnerDialogUnitNo.showSpinerDialog();
-//            }
-//        });
+        binding.edtunitname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                spinnerDialogUnitNo.showSpinerDialog();
+            }
+        });
 
         if (sessionManager.getBoolean(SessionManager.CHKBOX)) {
             binding.setModel(new LoginModel(sessionManager.getString(SessionManager.USER_NAME),sessionManager.getString(SessionManager.PASSWORD),sessionManager.getString(SessionManager.UNIT_NAME)));
