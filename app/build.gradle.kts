@@ -61,7 +61,7 @@ dependencies {
     implementation ("com.jakewharton.retrofit:retrofit1-okhttp3-client:1.1.0")
 
     implementation ("com.github.MdFarhanRaja:SearchableSpinner:2.1")
-    implementation ("com.github.antonKozyriatskyi:CircularProgressIndicator:1.3.0")
+//    implementation ("com.github.antonKozyriatskyi:CircularProgressIndicator:1.3.0")
 
     constraints {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
