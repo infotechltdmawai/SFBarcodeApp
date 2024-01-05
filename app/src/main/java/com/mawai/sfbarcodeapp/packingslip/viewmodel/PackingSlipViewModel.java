@@ -3,10 +3,6 @@ package com.mawai.sfbarcodeapp.packingslip.viewmodel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.mawai.sfbarcodeapp.login.model.LoginModel;
-import com.mawai.sfbarcodeapp.login.repo.LoginRepo;
-import com.mawai.sfbarcodeapp.login.response.LoginResponse;
-import com.mawai.sfbarcodeapp.login.response.UnitResponse;
 import com.mawai.sfbarcodeapp.packingslip.model.PackingSlipModel;
 import com.mawai.sfbarcodeapp.packingslip.repo.PackingSlipRepo;
 import com.mawai.sfbarcodeapp.packingslip.response.PackingSlipResponse;

@@ -32,7 +32,6 @@ public class PackingSlipRepo {
 //        apiServiceAfterLogin = APIClient.getApiCLientAfterLogin().create(ApiService.class);
     }
 
-
     public MutableLiveData<PackingSlipResponse> getPackList() {
         final MutableLiveData<PackingSlipResponse> unitlist = new MutableLiveData<>();
         apiServiceLogin.getPackList().enqueue(new Callback<PackingSlipResponse>() {

@@ -1,6 +1,6 @@
 package com.mawai.sfbarcodeapp.packingslip;
-
 import android.app.ProgressDialog;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -28,6 +29,7 @@ import com.mawai.sfbarcodeapp.packingslip.viewmodel.PackingSlipViewModel;
 import com.mawai.sfbarcodeapp.utills.SessionManager;
 import com.pranavpandey.android.dynamic.toasts.DynamicToast;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,10 +37,7 @@ import java.util.Map;
 
 import in.galaxyofandroid.spinerdialog.SpinnerDialog;
 
-
 public class PackingSlipFragment extends Fragment {
-
-
 
     public PackingSlipFragment() {
         // Required empty public constructor
@@ -52,7 +51,6 @@ public class PackingSlipFragment extends Fragment {
     private Map<String, String> divisionMap = new HashMap<String, String>();
     ArrayList<String> items = new ArrayList<>();
     List<PackingSlipModel> divisionsModelArrayList = new ArrayList<>();
-
     private Map<String, String> divisionMapItem = new HashMap<String, String>();
     ArrayList<String> itemsList = new ArrayList<>();
     List<PackingSlipModel> divisionsModelArrayListItem = new ArrayList<>();
@@ -66,6 +64,7 @@ public class PackingSlipFragment extends Fragment {
         packingSlipViewModel = new ViewModelProvider.AndroidViewModelFactory(getActivity().getApplication()).create(PackingSlipViewModel.class);
         binding.setLifecycleOwner(this);
         sessionManager = new SessionManager(getContext());
+        disableSoftInputFromAppearing(binding.edtScan);
 
         getPackList();
 
@@ -174,7 +173,6 @@ public class PackingSlipFragment extends Fragment {
         return binding.getRoot();
     }
 
-
     private void getPackList() {
         dialog = new ProgressDialog(getContext());
         dialog.setMessage("Please wait");
@@ -281,7 +279,6 @@ public class PackingSlipFragment extends Fragment {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               
                 if (clear.equals("Y")){
                     binding.edtPackingList.setText("");
                     binding.edtItem.setText("");
@@ -302,5 +299,22 @@ public class PackingSlipFragment extends Fragment {
 
     public void stopDialog() {
         bottomSheetDialog.dismiss();
+    }
+
+    public static void disableSoftInputFromAppearing(EditText editText) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            editText.setShowSoftInputOnFocus(false);
+        } else {
+            try {
+                final Method method = EditText.class.getMethod(
+                        "setShowSoftInputOnFocus"
+                        , new Class[]{boolean.class});
+                method.setAccessible(true);
+                method.invoke(editText, false);
+            } catch (Exception e) {
+                // ignore
+            }
+        }
     }
 }
