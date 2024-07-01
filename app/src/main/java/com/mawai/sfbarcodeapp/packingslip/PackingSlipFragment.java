@@ -54,7 +54,7 @@ public class PackingSlipFragment extends Fragment {
     private Map<String, String> divisionMapItem = new HashMap<String, String>();
     ArrayList<String> itemsList = new ArrayList<>();
     List<PackingSlipModel> divisionsModelArrayListItem = new ArrayList<>();
-    String doc_no,prod_cd,packing_cd = "";
+    String doc_no,prod_cd,packing_cd,cust_code = "";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -126,6 +126,7 @@ public class PackingSlipFragment extends Fragment {
             binding.edtPackQty.setText(divisionsModelArrayListItem.get(position).getScan_qty());
             doc_no = divisionsModelArrayListItem.get(position).getDoc_no();
             prod_cd = divisionsModelArrayListItem.get(position).getProd_cd();
+            cust_code = divisionsModelArrayListItem.get(position).getCust_code();
             binding.edtScan.requestFocus();
 //          sessionManager.save(SessionManager.UNIT_CODE,divisionsModelArrayList.get(position).getPacking_cd());
         });
@@ -152,6 +153,7 @@ public class PackingSlipFragment extends Fragment {
                     model.setUnit_cd(sessionManager.getString("unit_code"));
                     model.setScan_cd(editable.toString().trim());
                     model.setUser_cd(sessionManager.getString("user_name"));
+                    model.setCust_code(cust_code);
                     getScanItemCode(model);
                 }
             }
@@ -167,6 +169,7 @@ public class PackingSlipFragment extends Fragment {
                 doc_no = "";
                 prod_cd = "";
                 packing_cd = "";
+                cust_code = "";
             }
         });
 
@@ -188,7 +191,7 @@ public class PackingSlipFragment extends Fragment {
                     if (packingSlipResponse.getData() != null) {
                         divisionsModelArrayList = packingSlipResponse.getData();
                         for (PackingSlipModel divisionsModel : divisionsModelArrayList) {
-                            items.add(divisionsModel.getDoc_no() + " ( " + divisionsModel.getPacking_cd() + " ) " +  " ( " + divisionsModel.getCust_name() + " )");
+                            items.add(divisionsModel.getCust_name() + " ( " + divisionsModel.getPacking_cd() + " ) " +  " ( " + divisionsModel.getDoc_no() + " )");
                             divisionMap.put(divisionsModel.getPacking_cd(), divisionsModel.getPacking_cd());
                         }
                     }
@@ -286,6 +289,7 @@ public class PackingSlipFragment extends Fragment {
                     doc_no = "";
                     prod_cd = "";
                     packing_cd = "";
+                    cust_code = "";
                 } else if (clear.equals("N")) {
                     Log.e("Clear",clear);
                 }

@@ -12,6 +12,7 @@ public class PackingSlipModel {
     String unit_cd;
     String new_scan_qty;
     String user_cd;
+    String cust_code;
 
     public PackingSlipModel() {
     }
@@ -94,5 +95,13 @@ public class PackingSlipModel {
 
     public void setCust_name(String cust_name) {
         this.cust_name = cust_name;
+    }
+
+    public String getCust_code() {
+        return cust_code;
+    }
+
+    public void setCust_code(String cust_code) {
+        this.cust_code = cust_code;
     }
 }
