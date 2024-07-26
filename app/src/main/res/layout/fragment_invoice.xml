@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".invoice.InvoiceFragment">
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:background="@color/sigmablue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"
+                    app:theme="@style/ToolbarColoredBackArrow">
+
+                    <ImageView
+                        android:id="@+id/img_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_action_arrow"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/robotoslab_regular"
+                            android:gravity="center"
+                            android:text="TRUCK LOADING"
+                            android:textColor="@color/white"
+                            android:textSize="19dp" />
+
+                    </LinearLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/LoginTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="25dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/robotoslab_regular"
+                        android:hint="Select Invoice Number"
+                        app:hintEnabled="true"
+                        app:hintTextColor="@color/colorgrey">
+
+                        <EditText
+                            android:id="@+id/edt_invoice_number"
+                            style="@style/TextAppearance.AppCompat.Medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:fontFamily="@font/roboto_medium"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+<!--                    <include-->
+<!--                        layout="@layout/layout_list"-->
+<!--                        android:id="@+id/layout_dailog"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="500dp"-->
+<!--                        android:layout_marginStart="25dp"-->
+<!--                        android:layout_marginEnd="25dp"-->
+<!--                        android:layout_marginBottom="5dp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/LoginTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="25dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins_medium"
+                        android:hint="Date"
+                        android:visibility="gone"
+                        app:hintEnabled="true"
+                        app:hintTextColor="@color/colorgrey">
+
+                        <EditText
+                            android:id="@+id/edt_date"
+                            style="@style/TextAppearance.AppCompat.Medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:fontFamily="@font/poppins_medium"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/LoginTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="25dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/robotoslab_regular"
+                        android:hint="Scan Barcode"
+                        android:inputType="textPassword"
+                        app:hintEnabled="true"
+                        app:hintTextColor="@color/colorgrey">
+
+                        <EditText
+                            android:id="@+id/edt_scan_barcode"
+                            style="@style/TextAppearance.AppCompat.Medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            android:clickable="false"
+                            android:focusable="true"
+                            android:fontFamily="@font/roboto_medium"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_submit"
+                            style="@style/TextAppearance.AppCompat.Medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/login_btn_box_desgin"
+                            android:fontFamily="@font/robotoslab_bold"
+                            android:text="Submit"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btn_clear"
+                            style="@style/TextAppearance.AppCompat.Medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/backedtusername"
+                            android:fontFamily="@font/robotoslab_bold"
+                            android:text="Clear"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/searchView_category">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="2dp"
+                                        app:cardBackgroundColor="@android:color/white"
+                                        app:cardElevation="3dp">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_marginTop="5dp"
+                                                android:layout_marginRight="5dp"
+                                                android:orientation="vertical">
+
+                                                <View
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="1dp"
+                                                    android:background="@color/sigmablue" />
+
+                                                <TableRow
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:background="@color/sigmablue">
+
+                                                    <LinearLayout
+                                                        android:layout_width="1dp"
+                                                        android:layout_height="match_parent">
+
+                                                        <View style="@style/DividerTwo" />
+                                                    </LinearLayout>
+
+                                                    <TextView
+                                                        android:layout_width="80dp"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:fontFamily="@font/roboto_medium"
+                                                        android:gravity="center"
+                                                        android:padding="5dp"
+                                                        android:text="CHECK"
+                                                        android:textColor="@color/white"
+                                                        android:textSize="13dp"
+                                                        android:textStyle="bold" />
+
+
+                                                    <LinearLayout
+                                                        android:layout_width="1dp"
+                                                        android:layout_height="match_parent">
+
+                                                        <View style="@style/Divider" />
+                                                    </LinearLayout>
+
+                                                    <TextView
+                                                        android:layout_width="150dp"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:fontFamily="@font/roboto_medium"
+                                                        android:gravity="center"
+                                                        android:padding="5dp"
+                                                        android:text="PACKING CODE"
+                                                        android:textColor="@color/white"
+                                                        android:textSize="13dp"
+                                                        android:textStyle="bold" />
+
+<!--                                                    <LinearLayout-->
+<!--                                                        android:layout_width="1dp"-->
+<!--                                                        android:layout_height="match_parent">-->
+
+<!--                                                        <View style="@style/Divider" />-->
+<!--                                                    </LinearLayout>-->
+
+<!--                                                    <TextView-->
+<!--                                                        android:layout_width="80dp"-->
+<!--                                                        android:layout_height="wrap_content"-->
+<!--                                                        android:layout_gravity="center"-->
+<!--                                                        android:fontFamily="@font/roboto_medium"-->
+<!--                                                        android:gravity="center"-->
+<!--                                                        android:padding="5dp"-->
+<!--                                                        android:text="DOC QTY"-->
+<!--                                                        android:textColor="@color/white"-->
+<!--                                                        android:textSize="13dp"-->
+<!--                                                        android:textStyle="bold" />-->
+
+
+<!--                                                    <LinearLayout-->
+<!--                                                        android:layout_width="1dp"-->
+<!--                                                        android:layout_height="match_parent">-->
+
+<!--                                                        <View style="@style/Divider" />-->
+<!--                                                    </LinearLayout>-->
+
+<!--                                                    <TextView-->
+<!--                                                        android:layout_width="80dp"-->
+<!--                                                        android:layout_height="wrap_content"-->
+<!--                                                        android:layout_gravity="center"-->
+<!--                                                        android:fontFamily="@font/poppins_medium"-->
+<!--                                                        android:gravity="center"-->
+<!--                                                        android:padding="5dp"-->
+<!--                                                        android:text="SCAN QTY"-->
+<!--                                                        android:textColor="@color/white"-->
+<!--                                                        android:textSize="13dp"-->
+<!--                                                        android:textStyle="bold" />-->
+
+<!--                                                    <LinearLayout-->
+<!--                                                        android:layout_width="1dp"-->
+<!--                                                        android:layout_height="match_parent">-->
+
+<!--                                                        <View style="@style/Divider" />-->
+<!--                                                    </LinearLayout>-->
+
+<!--                                                    <TextView-->
+<!--                                                        android:layout_width="150dp"-->
+<!--                                                        android:layout_height="wrap_content"-->
+<!--                                                        android:layout_gravity="center"-->
+<!--                                                        android:fontFamily="@font/roboto_medium"-->
+<!--                                                        android:gravity="center"-->
+<!--                                                        android:padding="5dp"-->
+<!--                                                        android:text="PROD DESC"-->
+<!--                                                        android:textColor="@color/white"-->
+<!--                                                        android:textSize="13dp"-->
+<!--                                                        android:textStyle="bold" />-->
+
+
+<!--                                                    <LinearLayout-->
+<!--                                                        android:layout_width="1dp"-->
+<!--                                                        android:layout_height="match_parent">-->
+
+<!--                                                        <View style="@style/Divider" />-->
+<!--                                                    </LinearLayout>-->
+
+<!--                                                    <TextView-->
+<!--                                                        android:layout_width="150dp"-->
+<!--                                                        android:layout_height="wrap_content"-->
+<!--                                                        android:layout_gravity="center"-->
+<!--                                                        android:fontFamily="@font/roboto_medium"-->
+<!--                                                        android:gravity="center"-->
+<!--                                                        android:padding="5dp"-->
+<!--                                                        android:text="PROD CODE"-->
+<!--                                                        android:textColor="@color/white"-->
+<!--                                                        android:textSize="13dp"-->
+<!--                                                        android:textStyle="bold" />-->
+
+
+                                                    <LinearLayout
+                                                        android:layout_width="1dp"
+                                                        android:layout_height="match_parent">
+
+                                                        <View style="@style/DividerTwo" />
+                                                    </LinearLayout>
+
+
+                                                    <!--                                                    <TextView-->
+                                                    <!--                                                        android:layout_width="70dp"-->
+                                                    <!--                                                        android:layout_height="wrap_content"-->
+                                                    <!--                                                        android:layout_gravity="center"-->
+                                                    <!--                                                        android:fontFamily="@font/poppins_semibold"-->
+                                                    <!--                                                        android:gravity="center"-->
+                                                    <!--                                                        android:padding="5dp"-->
+                                                    <!--                                                        android:text=""-->
+                                                    <!--                                                        android:textColor="@color/white"-->
+                                                    <!--                                                        android:textSize="15dp"-->
+                                                    <!--                                                        android:textStyle="bold" />-->
+
+                                                    <!--                                                    <LinearLayout-->
+                                                    <!--                                                        android:layout_width="1dp"-->
+                                                    <!--                                                        android:layout_height="match_parent">-->
+
+                                                    <!--                                                        <View style="@style/Divider" />-->
+                                                    <!--                                                    </LinearLayout>-->
+
+
+                                                </TableRow>
+
+                                                <View
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="1dp"
+                                                    android:background="@color/black" />
+
+
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+                                    </androidx.cardview.widget.CardView>
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/fg_receive_recyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:divider="@null" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
