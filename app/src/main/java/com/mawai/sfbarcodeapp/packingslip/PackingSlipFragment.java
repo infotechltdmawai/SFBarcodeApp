@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.abhaysapp.awesomeprogressdialog.AwesomeProgressDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.mawai.sfbarcodeapp.R;
 import com.mawai.sfbarcodeapp.databinding.FragmentPackingSlipBinding;
@@ -177,12 +178,13 @@ public class PackingSlipFragment extends Fragment {
     }
 
     private void getPackList() {
-        dialog = new ProgressDialog(getContext());
-        dialog.setMessage("Please wait");
-        dialog.show();
-        dialog.setCancelable(true);
+        AwesomeProgressDialog progressDialog = new AwesomeProgressDialog(getContext());
+        progressDialog.addTitle("Loading..."); // add your title here.
+        progressDialog.setStyle(AwesomeProgressDialog.STYLE_LOADING_ROCKET);
+        progressDialog.isCancelable(false);
+        progressDialog.showDialog();
         packingSlipViewModel.callGetPackList().observe(getViewLifecycleOwner(), packingSlipResponse -> {
-            dialog.dismiss();
+            progressDialog.dismissDialog();
             if (packingSlipResponse != null) {
                 if (packingSlipResponse.getStatus()) {
                     divisionsModelArrayList.clear();
@@ -206,11 +208,13 @@ public class PackingSlipFragment extends Fragment {
     }
 
     private void getItemList(PackingSlipModel model) {
-        ProgressDialog progressDialog = new ProgressDialog(getContext());
-        progressDialog.setTitle("Please Wait...");
-        progressDialog.show();
+        AwesomeProgressDialog progressDialog = new AwesomeProgressDialog(getContext());
+        progressDialog.addTitle("Loading..."); // add your title here.
+        progressDialog.setStyle(AwesomeProgressDialog.STYLE_LOADING_ROCKET);
+        progressDialog.isCancelable(false);
+        progressDialog.showDialog();
         packingSlipViewModel.callGetItemList(model).observe(getViewLifecycleOwner(), (PackingSlipResponse packingSlipResponse) -> {
-            progressDialog.dismiss();
+            progressDialog.dismissDialog();
             if (packingSlipResponse!=null) {
                 if (packingSlipResponse.getStatus()) {
                     divisionsModelArrayListItem.clear();
@@ -233,11 +237,13 @@ public class PackingSlipFragment extends Fragment {
     }
 
     private void getScanItemCode(PackingSlipModel model) {
-        ProgressDialog progressDialog = new ProgressDialog(getContext());
-        progressDialog.setTitle("Please Wait...");
-        progressDialog.show();
+        AwesomeProgressDialog progressDialog = new AwesomeProgressDialog(getContext());
+        progressDialog.addTitle("Loading..."); // add your title here.
+        progressDialog.setStyle(AwesomeProgressDialog.STYLE_LOADING_ROCKET);
+        progressDialog.isCancelable(false);
+        progressDialog.showDialog();
         packingSlipViewModel.callGetScanItemCode(model).observe(getViewLifecycleOwner(), (PackingSlipScanResponse packingSlipScanResponse) -> {
-            progressDialog.dismiss();
+            progressDialog.dismissDialog();
             if (packingSlipScanResponse!=null) {
                 if (packingSlipScanResponse.getStatus()) {
 

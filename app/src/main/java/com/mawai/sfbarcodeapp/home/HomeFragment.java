@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     TextView text_unit_name,text_user_code,text_username;
-    CardView rack_loading,rack_transfer,material_issue,wip_trolly_receive,wip_trolly_issue;
+    CardView rack_loading,truck_loading,material_issue,wip_trolly_receive,wip_trolly_issue;
     SessionManager sessionManager;
     ImageView img_arrow,img_logout;
     ArrayList<ModelList>  modelLists = new ArrayList<>();
@@ -43,7 +43,7 @@ public class HomeFragment extends Fragment {
         img_logout = view.findViewById(R.id.img_logout);
 
         rack_loading = view.findViewById(R.id.rack_loading);
-        rack_transfer = view.findViewById(R.id.rack_transfer);
+        truck_loading = view.findViewById(R.id.truck_loading);
         material_issue = view.findViewById(R.id.material_issue);
         wip_trolly_issue = view.findViewById(R.id.wip_trolly_issue);
         wip_trolly_receive = view.findViewById(R.id.wip_trolly_receive);
@@ -73,17 +73,16 @@ public class HomeFragment extends Fragment {
         rack_loading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(modelLists.get(0).getUrl());
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_packingSlipFragment);
             }
         });
 
-//        rack_transfer.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_rackTransferFragment);
-//
-//            }
-//        });
+        truck_loading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_invoiceFragment);
+            }
+        });
 //
 //        material_issue.setOnClickListener(new View.OnClickListener() {
 //            @Override

@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.abhaysapp.awesomeprogressdialog.AwesomeProgressDialog;
 import com.mawai.sfbarcodeapp.R;
 import com.mawai.sfbarcodeapp.databinding.FragmentLoginBinding;
 import com.mawai.sfbarcodeapp.login.model.LoginModel;
@@ -147,12 +148,13 @@ public class LoginFragment extends Fragment {
     }
 
     private void getUnitList() {
-        dialog = new ProgressDialog(getContext());
-        dialog.setMessage("Please wait");
-        dialog.show();
-        dialog.setCancelable(true);
+        AwesomeProgressDialog progressDialog = new AwesomeProgressDialog(getContext());
+        progressDialog.addTitle("Loading..."); // add your title here.
+        progressDialog.setStyle(AwesomeProgressDialog.STYLE_LOADING_ROCKET);
+        progressDialog.isCancelable(false);
+        progressDialog.showDialog();
         loginViewModel.callGetUnitList().observe(getViewLifecycleOwner(), unitResponse -> {
-            dialog.dismiss();
+            progressDialog.dismissDialog();
             if (unitResponse != null) {
                 if (unitResponse.getStatus()) {
                     divisionsModelArrayList.clear();
@@ -175,11 +177,13 @@ public class LoginFragment extends Fragment {
         });
     }
     private void getLoginCall(LoginModel loginModel) {
-        ProgressDialog progressDialog = new ProgressDialog(getContext());
-        progressDialog.setTitle("Please Wait...");
-        progressDialog.show();
+        AwesomeProgressDialog progressDialog = new AwesomeProgressDialog(getContext());
+        progressDialog.addTitle("Loading..."); // add your title here.
+        progressDialog.setStyle(AwesomeProgressDialog.STYLE_LOADING_ROCKET);
+        progressDialog.isCancelable(false);
+        progressDialog.showDialog();
         loginViewModel.callGetLoginDetail(loginModel).observe(getViewLifecycleOwner(), (LoginResponse loginResponse) -> {
-            progressDialog.dismiss();
+            progressDialog.dismissDialog();
             if (loginResponse!=null) {
                 if (loginResponse.getStatus()) {
                     sessionManager.save(SessionManager.USER_NAME,binding.edtUserid.getText().toString().trim());

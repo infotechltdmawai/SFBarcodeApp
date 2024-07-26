@@ -71,4 +71,7 @@ dependencies {
             because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
         }
     }
+
+    implementation ("com.github.Abhay-cloud:AwesomeProgressDialog-Android:0.1")
+
 }

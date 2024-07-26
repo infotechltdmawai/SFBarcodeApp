@@ -35,11 +35,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_gravity="center"
+                android:fontFamily="@font/robotoslab_regular"
                 android:gravity="center"
-                android:fontFamily="@font/poppins_semibold"
                 android:text="SF"
                 android:textColor="@color/white"
                 android:textSize="18dp" />
@@ -121,11 +121,11 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
-                            android:fontFamily="@font/poppins_bold"
+                            android:fontFamily="@font/robotoslab_regular"
                             android:gravity="center"
                             android:text="Categogfdgfdgfdry"
                             android:textColor="@color/white"
-                            android:textSize="12dp"
+                            android:textSize="15dp"
                             android:textStyle="normal" />
 
                     <LinearLayout
@@ -144,9 +144,9 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"
-                            android:fontFamily="@font/poppins_bold"
+                            android:fontFamily="@font/robotoslab_medium"
                             android:text="Category"
-                            android:textSize="12dp"                        android:textColor="@color/white"
+                            android:textSize="14dp"                        android:textColor="@color/white"
                             android:textStyle="normal" />
 
                         <TextView
@@ -158,9 +158,9 @@
                             android:layout_marginRight="10dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"
-                            android:fontFamily="@font/poppins_bold"
+                            android:fontFamily="@font/robotoslab_medium"
                             android:text="Category"
-                            android:textSize="12dp"                        android:textColor="@color/white"
+                            android:textSize="14dp"                        android:textColor="@color/white"
                             android:textStyle="normal" />
 
                     </LinearLayout>
@@ -312,14 +312,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/rack_loading"
                             android:layout_width="match_parent"
                             android:layout_height="70dp"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/colorwhite"
+                            app:cardBackgroundColor="@color/orange"
                             app:cardCornerRadius="8dp"
                             app:cardElevation="4.5dp">
 
@@ -348,11 +348,11 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/poppins_bold"
+                                        android:fontFamily="@font/robotoslab_medium"
                                         android:padding="1dp"
                                         android:text="Packing Slip"
                                         android:textColor="@color/sigmablue"
-                                        android:textSize="13dp"
+                                        android:textSize="15dp"
                                         android:textStyle="normal" />
 
                                     <TextView
@@ -373,13 +373,13 @@
 
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/rack_transfer"
+                            android:id="@+id/truck_loading"
                             android:layout_width="match_parent"
                             android:layout_height="70dp"
                             android:layout_margin="5dp"
                             android:layout_weight="1"
-                            android:visibility="invisible"
-                            app:cardBackgroundColor="@color/colorwhite"
+                            android:visibility="visible"
+                            app:cardBackgroundColor="@color/pink"
                             app:cardCornerRadius="8dp"
                             app:cardElevation="4.5dp">
 
@@ -387,6 +387,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:gravity="center"
                                 android:layout_margin="2dp"
                                 android:orientation="horizontal">
 
@@ -406,11 +407,11 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/poppins_bold"
+                                        android:fontFamily="@font/robotoslab_medium"
                                         android:padding="1dp"
-                                        android:text="Rack Transfer"
+                                        android:text="Truck Loading"
                                         android:textColor="@color/sigmablue"
-                                        android:textSize="13dp"
+                                        android:textSize="15dp"
                                         android:textStyle="normal" />
 
                                     <TextView

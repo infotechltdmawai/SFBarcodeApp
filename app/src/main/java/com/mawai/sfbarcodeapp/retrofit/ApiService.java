@@ -7,6 +7,11 @@ import com.mawai.sfbarcodeapp.login.response.UnitResponse;
 import com.mawai.sfbarcodeapp.packingslip.model.PackingSlipModel;
 import com.mawai.sfbarcodeapp.packingslip.response.PackingSlipResponse;
 import com.mawai.sfbarcodeapp.packingslip.response.PackingSlipScanResponse;
+import com.mawai.sfbarcodeapp.truckloading.model.InvoiceModel;
+import com.mawai.sfbarcodeapp.truckloading.response.InvoiceResponse;
+import com.mawai.sfbarcodeapp.truckloading.response.TempSaveResponse;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -37,75 +42,17 @@ public interface ApiService {
     @POST("api/scanitemcode")
     Call<PackingSlipScanResponse> getScanItemCode(@Body PackingSlipModel model);
 //
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIMaterial/scanrack")
-//    Call<RackLoadingResponse> getScanRack(@Body RackLoadingModel model);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIMaterial/scanrack")
-//    Call<RackTransferResponse> getScanRackTransfer(@Body RackTransferModel model);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIMaterial/check-rack-transfer-data")
-//    Call<RackTransferResponse> getCheckRackTransferData(@Body RackTransferModel model);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIMaterial/update-rack-transfer")
-//    Call<RackTransferResponse> getUpdateRackTransfer(@Body RackTransferModel model);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIMaterial/update-rack-transfer")
-//    Call<RackLoadingResponse> getUpdateRackLoadingTransfer(@Body RackLoadingModel model);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @GET("api/SAIMaterial/issuetypelist")
-//    Call<IssueTypeResponse> getIssueTypeList();
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @GET("api/SAIMaterial/issuefor")
-//    Call<IssueForResponse> getIssueFor();
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @GET("api/SAIMaterial/fromlocation?")
-//    Call<FromLocationResponse> getFromLocation(@Query("unitcode") String unitCode);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIMaterial/tolocation")
-//    Call<RefAndToLocationResponse> getToLocation(@Body RefAndToLocationModel model);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIMaterial/refdocdatalist")
-//    Call<RefAndToLocationResponse> getRefDocDataList(@Body RefAndToLocationModel model);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIMaterial/scanissuesliplot")
-//    Call<ScanIssueSlipLotResponse> getScanIssueSlipLot(@Body ScanIssueSlipLotModel model);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIMaterial/saveissueslip")
-//    Call<ScanIssueSlipLotResponse> getSaveIssueSlip(@Body ScanIssueSlipLotModel model);
-//
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIWIP_Trolly/scan-wiptrolly-barcode")
-//    Call<WIPTrollyIssueResponse> getScanWipTrollyBarcode(@Body WIPTrollyIssueModel model);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIWIP_Trolly/scan-rack")
-//    Call<WIPTrollyIssueResponse> getScanWipTrollyScanRack(@Body WIPTrollyIssueModel model);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIWIP_Trolly/location-list")
-//    Call<WIPLocationResponse> getWIPLocationList(@Body WIPTrollyIssueModel model);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIWIP_Trolly/rack-list")
-//    Call<WIPRackCodeResponse> getWIPRackList(@Body WIPTrollyIssueModel model);
-//
-//    @Headers({"Content-Type: application/json", "Accept: application/json"})
-//    @POST("api/SAIWIP_Trolly/save-wiptrolly-barcode")
-//    Call<WIPTrollyIssueResponse> getSaveWipTrollyBarcode(@Body WIPTrollyIssueModel model);
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @POST("api/getinvoicelistsf")
+    Call<InvoiceResponse> getInvoiceLists(@Body InvoiceModel model);
 
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @POST("api/getpackingbyinvoicesf")
+    Call<InvoiceResponse> getInvoiceListData(@Body InvoiceModel model);
+
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @POST("api/updatepackingsf")
+    Call<TempSaveResponse> getTempSaveData(@Body InvoiceResponse model);
 
 
 }
