@@ -143,7 +143,6 @@ public class InvoiceFragment extends Fragment {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
             }
-
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void afterTextChanged(Editable editable) {
